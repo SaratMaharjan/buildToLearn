@@ -9,9 +9,11 @@
         <title></title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
+        <link href="https://fonts.googleapis.com/css?family=Lato:300i,400,700,900" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
         <link rel="stylesheet" href="css/normalize.min.css">
         <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/animate.css">
 
         <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
     </head>
@@ -20,23 +22,28 @@
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
 
-        <div class="header-container">
-            <header class="wrapper clearfix">
-                <h1 class="title">Your Budget</h1>
-                <nav>
-                    <ul>
-                        <li><a href="#daily">Daily</a></li>
-                        <li><a href="#monthly">Monthly</a></li>
-                        <li><a href="#summary">Summary</a></li>
-                    </ul>
-                </nav>
-            </header>
+        <div class="menu">
+          <h2>MENU</h2>
+              <ul>
+                  <li><a href="#daily">Daily</a></li>
+                  <li><a href="#monthly">Monthly</a></li>
+                  <li><a href="#summary">Summary</a></li>
+              </ul>
         </div>
 
-        <div class="main-container">
+        <div class="main-section">
+
+            <nav class="navbar">
+              <div class="hero">
+                <img class="wallet" src="css/images/wallet-128.png" alt="">
+                <h1>Shopping Tracker</h1>
+              </div>
+            </nav>
 
             <p>Daily Expenditure</p>
-            <input type="" name="">
+            <input type="" placeholder="price" name="price" >
+            <input type="" placeholder="name" name="name" >
+            <button>ADD</button>
 
             <div id="daily">
                 <ul>
@@ -63,12 +70,6 @@
 
             </div> <!-- #main -->
         </div> <!-- #main-container -->
-
-        <div class="footer-container">
-            <footer class="wrapper">
-                <h3>footer</h3>
-            </footer>
-        </div>
 
         <script src="js/main.js"></script>
     </body>

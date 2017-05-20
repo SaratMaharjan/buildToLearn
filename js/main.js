@@ -1,5 +1,3 @@
-
-
 var days = [1, 2, 3, 4, 5];
 
 var dailyItems = {
@@ -21,3 +19,11 @@ for (var i = 0; i < dailyItems.one.length; i++) {
 }
 
 dailyDOM.innerHTML += "</ul>";
+
+//menu switching
+var mainSection = document.querySelector('.main-section')
+var wallet = document.querySelector('.wallet')
+
+wallet.addEventListener('click', function() {
+	mainSection.classList.toggle('swap')
+}, false)

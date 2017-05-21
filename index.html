@@ -12,8 +12,8 @@
         <link href="https://fonts.googleapis.com/css?family=Lato:300i,400,700,900" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
         <link rel="stylesheet" href="css/normalize.min.css">
-        <link rel="stylesheet" href="css/main.css">
         <link rel="stylesheet" href="css/animate.css">
+        <link rel="stylesheet" href="css/main.css">
 
         <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
     </head>
@@ -35,42 +35,38 @@
 
             <nav class="navbar">
               <div class="hero">
-                <img class="wallet" src="css/images/wallet-128.png" alt="">
+                <img class="wallet" src="css/images/wallet-128.png" alt="Logo">
                 <h1>Shopping Tracker</h1>
               </div>
             </nav>
 
+
+<select id="selectMonth">
+
+</select>
+
+<select id="selectDay">
+
+</select>
+
             <p>Daily Expenditure</p>
-            <input type="" placeholder="price" name="price" >
             <input type="" placeholder="name" name="name" >
-            <button>ADD</button>
+            <input type="" placeholder="price" name="price" >
+            <button id="dailyAdd">ADD</button>
 
             <div id="daily">
-                <ul>
-                    <li>item1</li>
-                    <li>item2</li>
-                    <li>item3</li>
-                </ul>
             </div>
 
             <p>Monthly Expenditure</p>
+            <div id="monthly"></div>
 
-            <div id="monthly">
-
-                <ul>
-                    <li>item1</li>
-                    <li>item2</li>
-                    <li>item3</li>
-                </ul>
-
-            </div>
-            <div id="summary">
-                <p>Monthly, daily...</p>
-            </div>
+            <p>Summary</p>
+            <div id="summary"></div>
 
             </div> <!-- #main -->
         </div> <!-- #main-container -->
 
+        <script src="database/personOne.js"></script>
         <script src="js/main.js"></script>
     </body>
 </html>

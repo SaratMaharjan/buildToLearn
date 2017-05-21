@@ -1,29 +1,58 @@
-var days = [1, 2, 3, 4, 5];
 
-var dailyItems = {
-	"one": ["buy something", "buy nothing"],
-	"two": ["buy something", "buy nothing"],
-	"three": ["buy something", "buy nothing"],
-	"four": ["buy something", "buy nothing"],
-	"five": ["buy something", "buy nothing"]
-}
+var currentMonth = "jan";
+var currentDay = 1;
+var months = ["jan", "feb", "march", "april", "may"];
+var daysInMonth = [30, 30, 30, 30];
 
+// get reference to DOM Elements
 var dailyDOM = document.getElementById("daily");
+var monthlyDOM = document.getElementById("monthly");
+var mainSection = document.querySelector('.main-section')
+var wallet = document.querySelector('.wallet');
+var monthDOM = document.querySelector('#selectMonth');
+var dayDOM = document.querySelector('#selectDay');
 
-dailyDOM.innerHTML = "<ul>";
+arrayToHtml( jan2017.daily[currentDay-1], dailyDOM, "itemList" );
+arrayToHtml( jan2017.monthly, monthlyDOM, "itemList" );
+arrayToSelect( months, monthDOM, "monthSelect" );
 
-for (var i = 0; i < dailyItems.one.length; i++) {
-
-	dailyDOM.innerHTML += "<li>" + dailyItems.one[i] + "</li>";
-
+var contentString = "<select " + "class='daySelect'>";
+for (var i = 1; i <= daysInMonth[0]; i++) {
+	contentString += "<option>" + i + "</option>";
 }
+contentString += "</select>";
+dayDOM.innerHTML = contentString;
 
-dailyDOM.innerHTML += "</ul>";
+/*
+	Event Listeners
+*/
 
 //menu switching
-var mainSection = document.querySelector('.main-section')
-var wallet = document.querySelector('.wallet')
-
 wallet.addEventListener('click', function() {
 	mainSection.classList.toggle('swap')
 }, false)
+
+
+/*
+	Funtions used repeatedly are added below
+*/
+
+// insert array as list in DOM element
+function arrayToHtml (txtArray, domElement, addClass ) {
+	var contentString = "<ul " + "class='" + addClass + "'>";
+	for (var i = 0; i < txtArray.length; i++) {
+		contentString += "<li>" + txtArray[i] + "</li>";
+	}
+	contentString += "</ul>";
+	domElement.innerHTML = contentString;
+}
+
+// insert array as selection in DOM element
+function arrayToSelect (txtArray, domElement, addClass ) {
+	var contentString = "<select " + "class='" + addClass + "'>";
+	for (var i = 0; i < txtArray.length; i++) {
+		contentString += "<option value ='" + txtArray[i] + "'>" + txtArray[i] + "</option>";
+	}
+	contentString += "</select>";
+	domElement.innerHTML = contentString;
+}

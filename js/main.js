@@ -1,5 +1,5 @@
 
-var currentMonth = "jan";
+var currentMonth = 1;
 var currentDay = 1;
 var months = ["jan", "feb", "march", "april", "may"];
 var daysInMonth = [30, 30, 30, 30];
@@ -12,26 +12,38 @@ var wallet = document.querySelector('.wallet');
 var monthDOM = document.querySelector('#selectMonth');
 var dayDOM = document.querySelector('#selectDay');
 
-arrayToHtml( jan2017.daily[currentDay-1], dailyDOM, "itemList" );
-arrayToHtml( jan2017.monthly, monthlyDOM, "itemList" );
+arrayToHtml( personOne[currentMonth - 1].daily[currentDay - 1], dailyDOM, "itemList" );
+arrayToHtml( personOne[currentMonth - 1].monthly, monthlyDOM, "itemList" );
 arrayToSelect( months, monthDOM, "monthSelect" );
 
-var contentString = "<select " + "class='daySelect'>";
-for (var i = 1; i <= daysInMonth[0]; i++) {
-	contentString += "<option>" + i + "</option>";
-}
-contentString += "</select>";
-dayDOM.innerHTML = contentString;
+addDays(dayDOM, currentMonth);
+
+var selectDayDOM = document.querySelector('.daySelect');
+var selectMonthDOM = document.querySelector('.monthSelect');
 
 /*
 	Event Listeners
 */
 
-//menu switching
+// menu switching
 wallet.addEventListener('click', function() {
 	mainSection.classList.toggle('swap')
 }, false)
 
+// update daily items according to day Selection
+selectDayDOM.addEventListener('change', function() {
+	currentDay = selectDayDOM.value;
+	arrayToHtml( personOne[currentMonth - 1].daily[currentDay - 1], dailyDOM, "itemList" );
+}, false)
+
+// update daily items according to day Selection
+selectMonthDOM.addEventListener('change', function() {
+	currentMonth = months.indexOf(selectMonthDOM.value) + 1;
+	currentDay = 1;
+	selectDayDOM.value = currentDay;
+	arrayToHtml( personOne[currentMonth - 1].daily[currentDay - 1], dailyDOM, "itemList" );
+	arrayToHtml( personOne[currentMonth - 1].monthly, monthlyDOM, "itemList" );
+}, false)
 
 /*
 	Funtions used repeatedly are added below
@@ -55,4 +67,14 @@ function arrayToSelect (txtArray, domElement, addClass ) {
 	}
 	contentString += "</select>";
 	domElement.innerHTML = contentString;
+}
+
+// add days to selection
+function addDays (dayDOM, currentMonth) {
+	var contentString = "<select " + "class='daySelect'>";
+	for (var i = 1; i <= daysInMonth[currentMonth - 1]; i++) {
+		contentString += "<option>" + i + "</option>";
+	}
+	contentString += "</select>";
+	dayDOM.innerHTML = contentString;
 }

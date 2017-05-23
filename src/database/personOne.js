@@ -1,5 +1,5 @@
 
-var personOne = [
+export let personOne = [
 	{
 		"daily": [
 			["buy something", "buy nothing"],
